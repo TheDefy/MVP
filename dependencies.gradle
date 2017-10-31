@@ -1,0 +1,31 @@
+ext {
+    compileSdkVersion = 26
+    minSdkVersion = 17
+    targetSdkVersion = 26
+
+    okhttpVersion = '3.8.0'
+    supportLibrariesVersion = '26.1.0'
+
+    dep = [
+            okhttp               : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            mockWebServer        : "com.squareup.okhttp3:mockwebserver:$okhttpVersion",
+            appcompat            : "com.android.support:appcompat-v7:$supportLibrariesVersion",
+            junit                : "junit:junit:4.12",
+            testRunner           : "com.android.support.test:runner:1.0.1",
+            testEspresso         : "com.android.support.test.espresso:espresso-core:3.0.1",
+
+            butterknife          : 'com.jakewharton:butterknife:8.5.1',
+            annotationbutterknife: 'com.jakewharton:butterknife-compiler:8.5.1',
+
+            picasso              : 'com.squareup.picasso:picasso:2.5.2',
+
+            gson                 : 'com.google.code.gson:gson:2.8.0',
+
+            rxandroid            : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            rxjava               : 'io.reactivex.rxjava2:rxjava:2.1.1',
+
+            eventbus             : 'org.greenrobot:eventbus:3.0.0',
+    ]
+    isCi = "true".equals(System.getenv('CI'))
+
+}
