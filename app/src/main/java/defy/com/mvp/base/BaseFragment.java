@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * Fragment基础类
@@ -19,6 +22,8 @@ public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected ProgressDialog mProgressDialog;
     private View rootView;
+
+    private Unbinder bind;
 
     /**
      * 用此方法替代setContentView设置ContentView
@@ -72,6 +77,7 @@ public abstract class BaseFragment extends Fragment {
         } else {
             rootView = inflater.inflate(contentView(), container, false);
             rootView.setTag(true);
+            bind = ButterKnife.bind(this, rootView);
             initView(savedInstanceState);
             onDetach();
         }
@@ -107,6 +113,11 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        bind.unbind();
+    }
 
     @Override
     public void onDestroy() {

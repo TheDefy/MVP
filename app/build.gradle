@@ -29,4 +29,8 @@ dependencies {
     testImplementation dep.junit
     androidTestImplementation dep.testRunner
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //butterknife
+    compile dep.butterknife
+    annotationProcessor dep.annotationbutterknife
 }
